@@ -32,7 +32,9 @@ const testimonialsModalFunc = function () {
   modalContainer.classList.toggle("active");
   overlay.classList.toggle("active");
 }
-
+// modal for typing effect
+const textArray = ["Student", "UI/UX Designer", "Freelancer", "Vedio Editor", "Graphic Designer",];
+  let i = 0, j = 0, currentText = "", isDeleting = false;
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
 
@@ -157,3 +159,37 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+// event for typing
+   function type() {
+    let display = document.getElementById("typing-text");
+    currentText = textArray[i];
+
+    // typing or deleting
+    if (isDeleting) {
+      display.textContent = currentText.substring(0, j--);
+    } else {
+      display.textContent = currentText.substring(0, j++);
+    }
+
+    // typing/deleting speed
+    let speed = isDeleting ? 120 : 180;
+
+    if (!isDeleting && j === currentText.length) {
+      // word complete → start blinking
+      display.classList.add("blink");
+      isDeleting = true;
+      setTimeout(type, 1200); // pause before deleting
+    } else if (isDeleting && j === 0) {
+      // word deleted → stop blinking
+      display.classList.remove("blink");
+      isDeleting = false;
+      i = (i + 1) % textArray.length;
+      setTimeout(type, 500); // pause before next word
+    } else {
+      // typing in progress → no blink
+      display.classList.remove("blink");
+      setTimeout(type, speed);
+    }
+  }
+
+  type();

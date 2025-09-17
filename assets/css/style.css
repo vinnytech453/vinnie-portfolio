@@ -1880,3 +1880,69 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+/**
+*my picture
+*/
+.avatar-box{
+    width: 200px;           
+    height: 200px;          
+    border-radius: 50%;     
+    overflow: hidden;       /* hides image outside the circle */
+    border: 4px solid #333; /* optional border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* optional shadow */
+  }
+
+  .avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* makes image cover the circle */
+    object-position: center;
+    display: block;
+}
+ .avatar-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #333;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    transition: 0.4s ease-in-out; /* smooth animation */
+  }
+
+  .avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Glow + scale effect on hover */
+  .avatar-box:hover {
+    border-color: #00f0ff; /* glowing color */
+    box-shadow: 0 0 25px #00f0ff, 0 0 50px #00f0ff;
+    transform: scale(1.05); /* slightly zoom in */
+  }
+    /*typing
+    *effect */
+
+  .typing {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00f0ff;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 3px solid #00f0ff; /* cursor */
+    width: fit-content;
+    overflow: hidden;
+  }
+
+  /* Blinking animation (only active during pause) */
+  .blink {
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { border-color: #00f0ff; }
+    51%, 100% { border-color: transparent; }
+  }
